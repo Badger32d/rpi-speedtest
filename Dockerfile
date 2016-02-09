@@ -1,0 +1,12 @@
+FROM resin/raspberrypi-python
+
+ENV INITSYSTEM on
+
+RUN echo i2c-bcm2708 >> /etc/modules
+RUN echo i2c-dev >> /etc/modules
+
+RUN apt-get update && apt-get install -y python python-pip python-smbus i2c-tools && pip install speedtest-cli RPi.GPIO && rm -rf /var/lib/apt/lists/*
+
+COPY . /app
+
+CMD ["python", "/app/SpeedTestCheck.py"]
