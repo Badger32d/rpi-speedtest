@@ -19,9 +19,9 @@ I'm using an OG raspberry pi, and the aforementioned [Adafruit RGB LCD+Keypad ki
 ### Resin.io Setup & Deployment
 
 1. If you haven't got a resin.io account, visit [resin.io](http://resin.io) and sign up.
-1. start a new applicaton on resin.io, name it as you want, download the .zip file and extract it to your SD card.
-1. Insert the SD card into the Rasoberry pi, connect the ethernet cable and power it up using the micro-usb cable.
-1. After about 10 minutes your new device should show up on the resin.io applications dashboard.
+1. start a new applicaton on resin.io, name it what you want, download the .zip file and extract it to your SD card.
+1. Insert the SD card into the Raspberry pi, connect the ethernet cable and power it up.
+1. After about 10 -15 minutes your device should show up on the resin.io applications dashboard.
 
 
 Once your resin.io account is set up, you should be able to:
