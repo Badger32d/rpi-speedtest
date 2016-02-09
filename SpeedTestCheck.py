@@ -16,7 +16,7 @@ class SpeedTestCheck(object):
         self.lcd.backlight(self.lcd.GREEN)
 
     def checkspeed(self):
-        cmd = "speedtest-cli --simple"
+        cmd = "speedtest-cli --simple --secure"
         raw = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         output, errors = raw.communicate()
         cleaned = filter(None, output.split('\n'))
@@ -40,7 +40,7 @@ class SpeedTestCheck(object):
                 self.printspeed()
             except Exception as e:
                 print "not sure what happened! %s" %(e)
-            time.sleep(120)
+            time.sleep(3600)
 
 
 
