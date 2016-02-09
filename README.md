@@ -1,6 +1,6 @@
 # Python Speedtest app for Raspberry Pi
 
-This is a simple app I wrote to run a speedtest and display it using the [very nice](https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi) display.
+This is a simple app I wrote to run a speedtest and display it using this [very nice](https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi) display.
 
 TODO: many things
 
@@ -18,7 +18,7 @@ I'm using an OG raspberry pi, and the aforementioned [Adafruit RGB LCD+Keypad ki
 
 ### Resin.io Setup & Deployment
 
-1. If you haven't got a resin.io alpha account, visit [alpha.resin.io](http://alpha.resin.io) and sign up.
+1. If you haven't got a resin.io account, visit [resin.io](http://resin.io) and sign up.
 1. start a new applicaton on resin.io, name it as you want, download the .zip file and extract it to your SD card.
 1. Insert the SD card into the Rasoberry pi, connect the ethernet cable and power it up using the micro-usb cable.
 1. After about 10 minutes your new device should show up on the resin.io applications dashboard.
