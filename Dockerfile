@@ -6,7 +6,7 @@ RUN echo i2c-bcm2708 >> /etc/modules
 RUN echo i2c-dev >> /etc/modules
 
 RUN apt-get update && \
-apt-get install -y python python-pip python-smbus i2c-tools && \
+apt-get install -y python python-pip python-smbus i2c-tools python-dev && \
 pip install speedtest-cli && \
 pip install -U RPi.Gpio && rm -rf /var/lib/apt/lists/*
 
