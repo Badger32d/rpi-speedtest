@@ -13,9 +13,12 @@ class SpeedTestCheck(object):
 
     def setup(self):
         self.lcd = Adafruit_CharLCDPlate()
-        self.lcd.backlight(self.lcd.GREEN)
+        self.lcd.backlight(self.lcd.BLUE)
 
     def checkspeed(self):
+        self.lcd.clear()
+        self.lcd.backlight(self.lcd.PURPLE)
+        self.lcd.message("Checking speed....")
         cmd = "speedtest-cli --simple --secure"
         raw = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
         output, errors = raw.communicate()
@@ -24,8 +27,12 @@ class SpeedTestCheck(object):
         print self.current
 
     def printspeed(self):
-        self.lcd.clear()
-        self.lcd.backlight(self.lcd.BLUE)
+        if self.current['Download'] > 35:
+            self.lcd.clear()
+            self.lcd.backlight(self.lcd.GREEN)
+        elif self.current['Download'] < 35:
+            self.lcd.clear()
+            self.lcd.backlight(self.lcd.RED)
         msg1 = "D" + self.current['Download'] + '\n' + "U" + self.current['Upload']
         self.lcd.message(msg1)
 
