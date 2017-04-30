@@ -3,8 +3,7 @@
 import subprocess
 import time
 
-from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
-
+import Adafruit_CharLCD as LCD
 
 class SpeedTestCheck(object):
 
@@ -12,12 +11,12 @@ class SpeedTestCheck(object):
         self.current = {}
 
     def setup(self):
-        self.lcd = Adafruit_CharLCDPlate()
-        self.lcd.backlight(self.lcd.BLUE)
+        self.lcd = LCD.Adafruit_CharLCDPlate()
+        self.lcd.set_color(0.0, 0.0, 1.0)
 
     def checkspeed(self):
         self.lcd.clear()
-        self.lcd.backlight(self.lcd.VIOLET)
+        self.lcd.set_color(1.0, 0.0, 1.0)
         self.lcd.message("Checking speed....")
         cmd = "speedtest-cli --simple --secure"
         raw = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
@@ -29,11 +28,11 @@ class SpeedTestCheck(object):
     def printspeed(self):
         if self.current['Download'].split('.')[0] > 35:
             self.lcd.clear()
-            self.lcd.backlight(self.lcd.GREEN)
+            self.lcd.set_color(0.0, 1.0, 0.0)
         elif self.current['Download'].split('.')[0] < 35:
             self.lcd.clear()
-            self.lcd.backlight(self.lcd.RED)
-        msg1 = "D" + self.current['Download'] + '\n' + "U" + self.current['Upload']
+            self.lcd.set_color(1.0, 0.0, 0.0)
+        msg1 = "Down: {0} Mb/s".format(self.current['Download'].split('.')[0]) + '\n' + "Up: {0} Mb/s".format(self.current['Upload'].split('.')[0])
         self.lcd.message(msg1)
 
     def main(self):
@@ -42,11 +41,11 @@ class SpeedTestCheck(object):
             try:
                 self.checkspeed()
             except Exception as e:
-                print "not sure what happened! %s" %(e)
+                print "could not check speed: %s" %(e)
             try:
                 self.printspeed()
             except Exception as e:
-                print "not sure what happened! %s" %(e)
+                print "could not display speed: %s" %(e)
             time.sleep(3600)
 
 
