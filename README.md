@@ -1,17 +1,5 @@
 # Python Speedtest app for Raspberry Pi
-
-This is a simple app I wrote to run a speedtest and display it using this [very nice](https://learn.adafruit.com/adafruit-16x2-character-lcd-plus-keypad-for-raspberry-pi) display.
-
-TODO: many things
-
-* backlight change based on speed (green for within 80% of advertized, then yellow and red as speed degrades)
-* storage of metrics in some form of DB, probably elasticsearch
-
-
-I decided to check out the shiny new resin.io after I got the app working natively in raspbian.
-While there are still some rough edges, I think they have a rather interesting project. Initial run takes forever,
-partially due to the massive base container. I'll be experementing with making that container as small as possible.
-
+## This is Deprecated! Go use [this](https://github.com/BadgerOps/resin-speedtest) instead!
 ## Parts
 
 I'm using an OG raspberry pi, and the aforementioned [Adafruit RGB LCD+Keypad kit](https://www.adafruit.com/product/1109)
